@@ -1,0 +1,137 @@
+:root{
+    --color-showcase--1: #514561;
+    --color-showcase--2: #698269;
+    --color-showcase--3: #2E4F4F;
+
+    --color-rgb--white: 255, 255, 255;
+    --color-rgb--black: 0, 0, 0;
+
+    --font-primary: 'Poppins', sans-serif;
+
+    --transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+}
+
+html{
+    font-size: 10px;
+}
+
+html,
+body
+{
+    height: 100%;
+}
+
+body{
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.showcase
+.showcase__card,
+.showcase__card__title,
+.showcase__card__image
+{
+    transition: all 0.8s var(--transition-timing-function);
+}
+
+.showcase{
+    display: flex;
+    height: 100%;
+}
+
+
+.showcase__card{
+    position: relative;
+    color: #ffffff;
+    display: grid;
+    place-items: center;
+    flex-grow: 1;
+    cursor: pointer;
+    padding: 15px;
+    overflow: hidden;
+}
+.showcase__card:nth-child(1){
+    background-color: var(--color-showcase--1);
+}
+.showcase__card:nth-child(2){
+    background-color: var(--color-showcase--2);
+}
+.showcase__card:nth-child(3){
+    background-color: var(--color-showcase--3);
+}
+
+.showcase__card:hover{
+    flex-grow: 2;
+}
+
+.showcase__card__title{
+    position: absolute;
+    font-size: 8rem;
+    font-weight: 600;
+    font-style: italic;
+    -webkit-text-stroke: 1px #ffffff;
+}
+
+.showcase__card:hover .showcase__card__title{
+    color: transparent;
+    font-size: 12rem;
+    letter-spacing: 5px;
+    transform: translateY(-80%);
+}
+
+.showcase__card__image{
+    position: absolute;
+    max-height: 10rem;
+    filter: drop-shadow(0 1em 5px rgba(var(--color-rgb--black), 0.2));
+}
+
+.showcase__card:hover .showcase__card__image{
+    transform: translateY(-10%) rotate(-18deg);
+    max-height: 27rem;
+}
+
+.showcase__card__content{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all .1s linear;
+    isolation: isolate;
+}
+
+.showcase__card__content::before{
+    content: "";
+    position: absolute;
+    inset: 0 15px;
+    background-color: rgba(var(--color-rgb--white), 0.1);
+    z-index: -1;
+}
+
+.showcase__card:hover .showcase__card__content{
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: 0.3s;
+    transition-delay: 0.4s;
+}
+
+.showcase__card__content__text{
+    font-size: 1.4rem;
+    text-align: center;
+}
